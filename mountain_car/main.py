@@ -1,6 +1,7 @@
 import logging
 
 import click
+import torch
 
 from mountain_car.agent.q_learning import QLearningAgent
 from mountain_car.hook import LoggerHook
@@ -20,6 +21,9 @@ def train_agent(play_params: PlayParams):
         hooks.append(LoggerHook(play_params.logger_params))
 
     play_mountain_car(agent, hooks, play_params)
+
+    logging.info(f"saved DQN model at {play_params.dqn_path}")
+    torch.save(agent.dqn, play_params.dqn_path)
 
 
 @click.command(name="train_agent")

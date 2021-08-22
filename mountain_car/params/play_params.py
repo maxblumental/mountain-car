@@ -13,6 +13,7 @@ class PlayParams:
     steps_num: int
     agent_params: AgentParams
     logger_params: Optional[LoggerParams]
+    dqn_path: str
 
 
 PlayParamsSchema = class_schema(PlayParams)

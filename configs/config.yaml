@@ -1,4 +1,4 @@
-steps_num: 600000
+steps_num: 300000
 agent_params:
   min_epsilon: 0.0
   max_epsilon: 0.5
@@ -6,3 +6,4 @@ agent_params:
   gamma: 0.9
 logger_params:
   period_in_episodes: 100
+dqn_path: models/dqn.pth
