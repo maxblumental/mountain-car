@@ -1,3 +1,3 @@
-from common import Agent
+from .common import Agent
 
 __all__ = ["Agent"]

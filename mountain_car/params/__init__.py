@@ -1,3 +1,3 @@
-from .play_params import PlayParams
+from .play_params import PlayParams, read_play_params
 
-__all__ = ["PlayParams"]
+__all__ = ["PlayParams", "read_play_params"]

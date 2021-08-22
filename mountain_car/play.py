@@ -16,11 +16,11 @@ def play_mountain_car(agent: Agent, hooks: List[Hook], params: PlayParams):
         for hook in hooks:
             hook.do_before_step(step, state)
 
-        action = agent.choose_action(state)
+        action = agent.choose_action(step, state)
 
         new_state, reward, done, info = env.step(action)
 
-        agent.accept_feedback(state, new_state, reward)
+        agent.accept_feedback(step, state, action, reward, new_state)
 
         for hook in hooks:
             hook.do_after_step(step, state, action, new_state, reward)

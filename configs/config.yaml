@@ -1,0 +1,6 @@
+steps_num: 100000
+agent_params:
+  min_epsilon: 0.01
+  max_epsilon: 0.3
+  min_epsilon_step: 30000
+  gamma: 0.9
