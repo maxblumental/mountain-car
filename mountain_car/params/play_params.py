@@ -1,15 +1,18 @@
 from dataclasses import dataclass
+from typing import Optional
 
 import yaml
 from marshmallow_dataclass import class_schema
 
 from .agent_params import AgentParams
+from .logger_params import LoggerParams
 
 
 @dataclass()
 class PlayParams:
     steps_num: int
     agent_params: AgentParams
+    logger_params: Optional[LoggerParams]
 
 
 PlayParamsSchema = class_schema(PlayParams)

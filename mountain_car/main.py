@@ -3,6 +3,7 @@ import logging
 import click
 
 from mountain_car.agent.q_learning import QLearningAgent
+from mountain_car.hook import LoggerHook
 from mountain_car.params import read_play_params, PlayParams
 from mountain_car.play import play_mountain_car
 
@@ -14,7 +15,11 @@ def train_agent(play_params: PlayParams):
 
     agent = QLearningAgent(play_params.agent_params)
 
-    play_mountain_car(agent, hooks=[], params=play_params)
+    hooks = []
+    if play_params.logger_params is not None:
+        hooks.append(LoggerHook(play_params.logger_params))
+
+    play_mountain_car(agent, hooks, play_params)
 
 
 @click.command(name="train_agent")

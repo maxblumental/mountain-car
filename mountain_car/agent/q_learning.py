@@ -36,6 +36,8 @@ class QLearningAgent(Agent):
         return self.dqn(state).argmax().item()
 
     def accept_feedback(self, step, prev_state, action, reward, new_state):
+        reward = reward + 300 * (abs(new_state[1]) - abs(prev_state[1]))
+
         target = reward + self.params.gamma * self.dqn(new_state).max().item()
         prediction = self.dqn(prev_state)[action]
 
